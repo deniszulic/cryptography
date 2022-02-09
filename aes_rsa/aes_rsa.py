@@ -4,12 +4,12 @@ from Crypto.Cipher import AES, PKCS1_OAEP
 
 key = RSA.generate(2048)
 private_key = key.exportKey()
-file_out = open("private.pem", "wb")
+file_out = open("aes_rsa/private.pem", "wb")
 file_out.write(private_key)
 file_out.close()
 
 public_key = key.publickey().exportKey()
-file_out = open("receiver.pem", "wb")
+file_out = open("aes_rsa/receiver.pem", "wb")
 file_out.write(public_key)
 file_out.close()
 
