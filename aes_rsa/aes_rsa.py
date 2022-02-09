@@ -16,7 +16,7 @@ file_out.close()
 data = "Kriptografija".encode("utf-8")
 file_out = open("encrypted_data.bin", "wb")
 
-recipient_key = RSA.import_key(open("receiver.pem").read())
+recipient_key = RSA.import_key(open("aes_rsa/receiver.pem").read())
 session_key = get_random_bytes(16)
 
 cipher_rsa = PKCS1_OAEP.new(recipient_key)
@@ -29,7 +29,7 @@ file_out.close()
 
 file_in = open("encrypted_data.bin", "rb")
 
-private_key = RSA.import_key(open("private.pem").read())
+private_key = RSA.import_key(open("aes_rsa/private.pem").read())
 
 enc_session_key, nonce, tag, ciphertext = \
    [ file_in.read(x) for x in (private_key.size_in_bytes(), 16, 16, -1) ]
