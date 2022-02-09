@@ -1,0 +1,4 @@
+CREATE TABLE form(
+	id VARCHAR(20) NOT NULL,
+	encrypt VARCHAR(60) NOT NULL
+)
